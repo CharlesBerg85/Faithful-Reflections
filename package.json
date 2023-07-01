@@ -1,7 +1,6 @@
 {
   "name": "jsblog",
   "version": "0.1.0",
-  "homepage": "https://CharlesBerg85.github.io/Faithful-Reflections-Bible-Blog-App",
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
@@ -16,8 +15,6 @@
     "router-dom": "^2.2.11"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,8 +37,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^5.0.0"
   }
 }
