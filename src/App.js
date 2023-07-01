@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header title="Bible Blog" />
+      <Header title="Faithful Reflections" />
         <Nav />
         <Routes>
           <Route path="/" element={<Home isLoading={isLoading} fetchError={fetchError}/>} />
