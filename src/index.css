@@ -228,10 +228,12 @@ body {
 }
 
 .deleteButton {
-  background-color: #ff0000;
+  margin-top: 1rem;
+  background-color: red;
 }
 
 .editButton {
+  margin-top: 1rem;
   background-color: #0b9707;
 }
 
