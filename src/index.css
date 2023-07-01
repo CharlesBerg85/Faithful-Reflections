@@ -16,7 +16,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
-  background-color: #efefef;
+  background-color: #f5f5f5;
 }
 
 #root {
@@ -38,9 +38,10 @@ body {
   box-shadow: 0px 0px 15px gray;
 }
 
-.Header, .Footer {
+.Header,
+.Footer {
   width: 100%;
-  background-color: #0b9707;
+  background-color: #263238;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -49,10 +50,12 @@ body {
 
 .Header h1 {
   font-size: 1.5rem;
+  color: #ffffff;
 }
 
 .Header svg {
   font-size: 2rem;
+  color: #ffffff;
 }
 
 .Footer {
@@ -63,7 +66,7 @@ body {
 
 .Nav {
   width: 100%;
-  background-color: #333;
+  background-color: #455a64;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -91,7 +94,7 @@ body {
 }
 
 .Nav ul {
-  color: #fff;
+  color: #ffffff;
   list-style-type: none;
   display: flex;
   flex-wrap: nowrap;
@@ -102,35 +105,39 @@ body {
   padding: 1rem;
 }
 
-.Nav li:hover, 
+.Nav li:hover,
 .Nav li:focus {
   padding: 1rem;
 }
 
 .Nav li a {
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
 }
 
-.Nav li:hover, 
-.Nav li:focus, 
-.Nav li:hover a, 
-.Nav li:focus a  {
-  background-color: #eee;
-  color: #333;
+.Nav li:hover,
+.Nav li:focus,
+.Nav li:hover a,
+.Nav li:focus a {
+  background-color: #b0bec5;
+  color: #263238;
 }
 
-.Nav li:hover a, 
+.Nav li:hover a,
 .Nav li:focus a {
   cursor: pointer;
 }
 
-.Home, .NewPost, .PostPage, .About, .Missing {
+.Home,
+.NewPost,
+.PostPage,
+.About,
+.Missing {
   width: 100%;
   flex-grow: 1;
   padding: 1rem;
   overflow-y: auto;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 .post {
@@ -143,9 +150,9 @@ body {
   text-decoration: none;
 }
 
-.Home .post a, 
+.Home .post a,
 .Home .post a:visited {
-  color: #000;
+  color: #000000;
 }
 
 .post:first-child {
@@ -174,7 +181,7 @@ body {
   margin-top: 1rem;
 }
 
-.newPostForm input[type='text'], 
+.newPostForm input[type='text'],
 .newPostForm textarea {
   font-family: 'Open Sans', sans-serif;
   width: 100%;
@@ -198,9 +205,13 @@ body {
   padding: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
+  background-color: #0b9707;
+  color: #ffffff;
 }
- 
-.Missing p, .PostPage p, .NewPost p {
+
+.Missing p,
+.PostPage p,
+.NewPost p {
   margin-top: 1rem;
 }
 
@@ -211,17 +222,18 @@ body {
   padding: 0.5rem;
   margin-right: 0.5rem;
   font-size: 1rem;
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
+  background-color: #0b9707;
 }
 
 .deleteButton {
   background-color: #ff0000;
-} 
+}
 
 .editButton {
   background-color: #0b9707;
-}   
+}
 
 .statusMsg {
   margin-top: 2rem;
@@ -247,20 +259,20 @@ body {
     text-align: right;
   }
 
-  .Nav li:hover, 
-  .Nav li:focus, 
-  .Nav li:hover a, 
-  .Nav li:focus a  {
-    background-color: #eee;
-    color: #333;
+  .Nav li:hover,
+  .Nav li:focus,
+  .Nav li:hover a,
+  .Nav li:focus a {
+    background-color: #b0bec5;
+    color: #263238;
   }
 
   .searchForm {
     width: 50%;
-    padding: .5rem 0;
+    padding: 0.5rem 0;
   }
- 
-  .searchForm input[type="text"] {
+
+  .searchForm input[type='text'] {
     margin-left: 0.5rem;
   }
 
@@ -270,9 +282,7 @@ body {
 }
 
 @media only screen and (min-width: 992px) {
-
   .Header svg {
     font-size: 3rem;
   }
-
 }
