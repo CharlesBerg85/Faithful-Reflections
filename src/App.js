@@ -7,7 +7,7 @@ import PostPage from '../src/components/PostPage';
 import EditPost from '../src/components/EditPost';
 import About from '../src/components/About';
 import Missing from '../src/components/Missing';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import useAxiosFetch from "./hooks/useAxiosFetch";
 import { useStoreActions } from 'easy-peasy';
