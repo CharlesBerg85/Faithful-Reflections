@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Faithful-Reflections-Bible-Blog-App/static/css/main.76a6eb62.css",
+    "main.js": "/Faithful-Reflections-Bible-Blog-App/static/js/main.3e2090db.js",
+    "index.html": "/Faithful-Reflections-Bible-Blog-App/index.html",
+    "main.76a6eb62.css.map": "/Faithful-Reflections-Bible-Blog-App/static/css/main.76a6eb62.css.map",
+    "main.3e2090db.js.map": "/Faithful-Reflections-Bible-Blog-App/static/js/main.3e2090db.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.76a6eb62.css",
+    "static/js/main.3e2090db.js"
+  ]
+}
