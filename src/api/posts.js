@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL: "https://faithful-reflections-cabc53b8cf1c.herokuapp.com"
+    baseURL: "https://faithful-reflections-57ba85fa19c1.herokuapp.com/"
 });
