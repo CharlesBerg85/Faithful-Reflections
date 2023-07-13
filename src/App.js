@@ -14,7 +14,7 @@ import { useStoreActions } from 'easy-peasy';
 
 function App() {
   const setPosts = useStoreActions((actions) => actions.setPosts);
-  const { data, fetchError, isLoading } = useAxiosFetch("http://localhost:3500/posts");
+  const { data, fetchError, isLoading } = useAxiosFetch("https://faithful-reflections-2c09300a2d73.herokuapp.com/");
 
   useEffect(() => {
     setPosts(data);
