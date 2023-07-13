@@ -9,6 +9,7 @@ const Nav = () => {
   const setSearchResults = useStoreActions((actions) => actions.setSearchResults);
 
   useEffect(() => {
+    console.log(t);
     const filteredResults = posts.filter(
       (post) =>
         post.body.toLowerCase().includes(search.toLowerCase()) ||
