@@ -1,11 +1,11 @@
-{ 
+{
   "name": "jsblog",
   "version": "0.1.0",
   "private": true,
-
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
     "axios": "^1.4.0",
+    "cors": "^2.8.5",
     "date-fns": "^2.30.0",
     "easy-peasy": "^6.0.1",
     "got": "^13.0.0",
