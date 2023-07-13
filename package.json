@@ -1,7 +1,8 @@
-{
+{ 
   "name": "jsblog",
   "version": "0.1.0",
   "private": true,
+
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
     "axios": "^1.4.0",
