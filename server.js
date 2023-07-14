@@ -9,10 +9,6 @@ const cors = require('cors');
 const port = process.env.PORT || 3500;
 
 server.use(middlewares);
-server.use(jsonServer.rewriter({
-  '/api/*': '/$1',
-  }));
-
 server.use(router);
 server.use(cors());
 
