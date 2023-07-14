@@ -11,7 +11,9 @@ const Nav = () => {
   useEffect(() => {
     const filteredResults = posts.filter(
       (post) =>
+        post.body &&
         post.body.toLowerCase().includes(search.toLowerCase()) ||
+        post.title &&
         post.title.toLowerCase().includes(search.toLowerCase())
     );
 
