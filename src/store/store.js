@@ -32,7 +32,7 @@ export default createStore({
     }),
     postCount: computed((state) => state.posts.length),
     getPostById: computed((state) => {
-        return (id) => state.posts.find(post => post.id.toString() === id);
+        return (id) => state.posts.find(post => post.id === parseInt(id));
     }),
     savePost: thunk(async (actions, newPost, helpers) => {
         const { posts } = helpers.getState();
