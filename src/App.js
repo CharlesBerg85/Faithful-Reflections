@@ -13,26 +13,28 @@ import useAxiosFetch from "./hooks/useAxiosFetch";
 import { useStoreActions } from 'easy-peasy';
 
 function App() {
+  // Retrieve the setPosts action from easy-peasy
   const setPosts = useStoreActions((actions) => actions.setPosts);
+  // Use the useAxiosFetch hook to fetch data from the server
   const { data, fetchError, isLoading } = useAxiosFetch(`${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_SERVER_PORT}`);
 
+  // Update the state with the fetched data
   useEffect(() => {
     setPosts(data);
   }, [data, setPosts]);
 
-
   return (
     <div className="App">
       <Header title="Faithful Reflections" />
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Home isLoading={isLoading} fetchError={fetchError}/>} />
-          <Route path="/post" element={<NewPost />} />
-          <Route path="/edit/:id" element={<EditPost />} />
-          <Route path="/post/:id" element={<PostPage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<Missing />} />
-        </Routes>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home isLoading={isLoading} fetchError={fetchError} />} />
+        <Route path="/post" element={<NewPost />} />
+        <Route path="/edit/:id" element={<EditPost />} />
+        <Route path="/post/:id" element={<PostPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<Missing />} />
+      </Routes>
       <Footer />
     </div>
   );
