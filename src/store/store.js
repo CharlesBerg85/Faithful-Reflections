@@ -72,45 +72,43 @@ export default createStore({
   }),
 
   // Thunk to save a new post
-// Thunk to save a new post
-savePost: thunk(async (actions, newPost, { getState }) => {
-  try {
-    const { posts } = getState();
-    const id = generateUniqueId(); // Generate a unique ID
-    const response = await api.post('/posts', { ...newPost, id }); // Assign the ID to the new post
-    const savedPost = response.data;
-    actions.setPosts([...posts, savedPost]);
-    actions.setPostTitle('');
-    actions.setPostBody('');
-  } catch (err) {
-    console.log(`Error: ${err.message}`);
-  }
-}),
-
+  savePost: thunk(async (actions, newPost, { getState }) => {
+    try {
+      const { posts } = getState();
+      const id = generateUniqueId(); // Generate a unique ID
+      const response = await api.post('/posts', { ...newPost, id }); // Assign the ID to the new post
+      const savedPost = response.data;
+      actions.setPosts([...posts, savedPost]);
+      actions.setPostTitle('');
+      actions.setPostBody('');
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  }),
 
   // Thunk to delete a post
-deletePost: thunk(async (actions, id) => {
-  try {
-    await api.delete(`/posts/${id}`);
-    actions.setPosts(state.posts.filter(post => post.id !== id));
-  } catch (err) {
-    console.log(`Error: ${err.message}`);
-  }
-}),
+  deletePost: thunk(async (actions, id, { getState }) => {
+    try {
+      const { posts } = getState();
+      await api.delete(`/posts/${id}`);
+      actions.setPosts(posts.filter(post => post.id !== id));
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  }),
 
-// Thunk to edit a post
-editPost: thunk(async (actions, updatedPost) => {
-  const { id } = updatedPost;
-  try {
-    const response = await api.put(`/posts/${id}`, updatedPost);
-    const editedPost = response.data;
-    actions.setPosts(
-      state.posts.map(post => (post.id === id ? editedPost : post))
-    );
-    actions.setEditTitle('');
-    actions.setEditBody('');
-  } catch (err) {
-    console.log(`Error: ${err.message}`);
-  }
-})
+  // Thunk to edit a post
+  editPost: thunk(async (actions, updatedPost, { getState }) => {
+    try {
+      const { posts } = getState();
+      const { id } = updatedPost;
+      const response = await api.put(`/posts/${id}`, updatedPost);
+      const editedPost = response.data;
+      actions.setPosts(posts.map(post => (post.id === id ? editedPost : post)));
+      actions.setEditTitle('');
+      actions.setEditBody('');
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  })
 });
