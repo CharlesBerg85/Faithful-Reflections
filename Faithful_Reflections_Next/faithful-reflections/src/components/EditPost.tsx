@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { format } from "date-fns";
-import { updatePost } from '../api/posts';
+import { updatePost } from '../src/api/posts';
 
 const EditPost = () => {
   const { id } = useParams();

@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-const API_URL = process.env.API_URL
+const API_URL = 'https://your-firebase-api-url'; // Replace with your actual Firebase API URL
 
 interface Post {
   id: number;
@@ -29,4 +29,9 @@ export const updatePost = (
 // Function to delete a post
 export const deletePost = (postId: number): Promise<AxiosResponse<void>> => {
   return axios.delete<void>(`${API_URL}/posts/${postId}`);
+};
+
+// Function to fetch the post count
+export const fetchPostCount = (): Promise<AxiosResponse<{ count: number }>> => {
+  return axios.get<{ count: number }>(`${API_URL}/postCount`);
 };
