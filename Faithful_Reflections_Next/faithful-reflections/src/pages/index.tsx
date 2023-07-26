@@ -3,7 +3,7 @@ import axios from 'axios';
 import Header from 'src/components/Header';
 import Nav from 'src/components/Nav';
 import Footer from 'src/components/Footer';
-import Home, { HomeProps } from 'src/components/Home';
+import Home from 'src/components/Home';
 import NewPost from 'src/components/NewPost';
 import PostPage from 'src/components/PostPage';
 import EditPost from 'src/components/EditPost';
@@ -58,10 +58,7 @@ function Index() {
       <Nav />
       {/* Pass the isLoading, fetchError, and posts props to the Home component */}
       <Home isLoading={isLoading} fetchError={fetchError} posts={posts} />
-      <NewPost />
-      <EditPost />
       <PostPage />
-      <About />
       <Missing />
       <Footer />
     </div>
