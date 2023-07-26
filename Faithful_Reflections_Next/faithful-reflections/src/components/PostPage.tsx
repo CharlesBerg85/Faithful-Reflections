@@ -5,7 +5,7 @@ import axios from 'axios';
 const PostPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const postId = id ? parseInt(id) : undefined;
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -27,10 +27,12 @@ const PostPage = () => {
   }, [id]);
 
   // Function to handle post deletion
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (id: number | undefined) => {
     try {
+     if(id !== undefined){
       await axios.delete(`https://your-backend-url/posts/${id}`);
       navigate('/');
+        }
     } catch (error: any) {
       console.error('Error deleting post:', error.message);
     }
@@ -66,7 +68,7 @@ const PostPage = () => {
         <Link to={`/edit/${id}`}>
           <button className="editButton">Edit Post</button>
         </Link>
-        <button className="deleteButton" onClick={() => handleDelete(id)}>
+        <button className="deleteButton" onClick={() => handleDelete(postId)}>
           Delete Post
         </button>
       </article>

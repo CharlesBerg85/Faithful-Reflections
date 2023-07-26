@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchPostCount } from '../src/api/posts';
+import { fetchPostCount } from '../api/posts';
 
 
 const Footer = () => {

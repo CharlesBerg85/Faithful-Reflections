@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { format } from "date-fns";
-import { updatePost } from '../src/api/posts';
+import { updatePost } from '../api/posts';
 
 const EditPost = () => {
   const { id } = useParams();
@@ -20,17 +20,22 @@ const EditPost = () => {
   const navigate = useNavigate();
 
   const handleEdit = async () => {
+    if(id === undefined){
+      console.log("Invalid ID");
+      return;
+    }
     const datetime = format(new Date(), "MMMM dd, yyyy pp");
-    const updatedPost = { id, title: editTitle, datetime, body: editBody };
+    const updatedPost = { id: parseInt(id), title: editTitle, datetime, body: editBody };
 
     // Call the updatePost function from your api/posts file to update the post in your Firebase backend.
     try {
-      await updatePost(id, updatedPost);
+      await updatePost(updatedPost.id, updatedPost); // Convert id to number
       navigate("/");
     } catch (error) {
       console.log("Error updating post:", error);
     }
   };
+
 
   return (
     <main className="NewPost">
