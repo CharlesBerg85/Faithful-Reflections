@@ -1,10 +1,19 @@
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { format } from "date-fns";
+import { useState, useEffect } from 'react';
+import { format } from 'date-fns';
 import { updatePost } from '../api/posts';
+import { useRouter } from 'next/router';
+import { ParsedUrlQuery } from 'querystring';
+
+interface Post {
+  id: number;
+  title: string;
+  datetime: string;
+  body: string;
+}
 
 const EditPost = () => {
-  const { id } = useParams();
+  const router = useRouter();
+  const { id } = router.query as ParsedUrlQuery;
   const [editTitle, setEditTitle] = useState('');
   const [editBody, setEditBody] = useState('');
 
@@ -17,25 +26,27 @@ const EditPost = () => {
     // setEditBody(post.body);
   }, [id]);
 
-  const navigate = useNavigate();
-
   const handleEdit = async () => {
-    if(id === undefined){
-      console.log("Invalid ID");
+    if (id === undefined) {
+      console.log('Invalid ID');
       return;
     }
-    const datetime = format(new Date(), "MMMM dd, yyyy pp");
-    const updatedPost = { id: parseInt(id), title: editTitle, datetime, body: editBody };
+    const datetime = format(new Date(), 'MMMM dd, yyyy pp');
+    const updatedPost: Post = {
+      id: parseInt(id as string),
+      title: editTitle,
+      datetime,
+      body: editBody,
+    };
 
     // Call the updatePost function from your api/posts file to update the post in your Firebase backend.
     try {
       await updatePost(updatedPost.id, updatedPost); // Convert id to number
-      navigate("/");
+      router.push('/');
     } catch (error) {
-      console.log("Error updating post:", error);
+      console.log('Error updating post:', error);
     }
   };
-
 
   return (
     <main className="NewPost">
@@ -56,7 +67,9 @@ const EditPost = () => {
           value={editBody}
           onChange={(e) => setEditBody(e.target.value)}
         />
-        <button type="button" onClick={handleEdit}>Submit</button>
+        <button type="button" onClick={handleEdit}>
+          Submit
+        </button>
       </form>
     </main>
   );

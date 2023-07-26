@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { ParsedUrlQuery } from 'querystring';
 
 const PostPage = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const postId = id ? parseInt(id) : undefined;
+  const router = useRouter();
+  const { id } = router.query as ParsedUrlQuery;
+  const postId = id ? parseInt(id as string) : undefined;
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -13,7 +15,7 @@ const PostPage = () => {
     // Function to fetch the post by ID
     const fetchPostById = async () => {
       try {
-        const response = await axios.get(`https://your-backend-url/posts/${id}`);
+        const response = await axios.get(`http://localhost:3000/posts/${id}`);
         setPost(response.data);
       } catch (error: any) {
         console.error('Error fetching post:', error.message);
@@ -29,10 +31,10 @@ const PostPage = () => {
   // Function to handle post deletion
   const handleDelete = async (id: number | undefined) => {
     try {
-     if(id !== undefined){
-      await axios.delete(`https://your-backend-url/posts/${id}`);
-      navigate('/');
-        }
+      if (id !== undefined) {
+        await axios.delete(`https://your-backend-url/posts/${id}`);
+        router.push('/');
+      }
     } catch (error: any) {
       console.error('Error deleting post:', error.message);
     }
@@ -49,7 +51,7 @@ const PostPage = () => {
           <h2>Post not found</h2>
           <p>Well, that's disappointing.</p>
           <p>
-            <Link to="/">Visit our homepage</Link>
+            <Link href="/">Visit our homepage</Link>
           </p>
         </article>
       </main>
@@ -65,7 +67,7 @@ const PostPage = () => {
         <h2>{title}</h2>
         <p className="postDate">{datetime}</p>
         <p className="postBody">{body}</p>
-        <Link to={`/edit/${id}`}>
+        <Link href={`/edit/${id}`}>
           <button className="editButton">Edit Post</button>
         </Link>
         <button className="deleteButton" onClick={() => handleDelete(postId)}>

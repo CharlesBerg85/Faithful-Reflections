@@ -9,6 +9,7 @@ import PostPage from 'src/components/PostPage';
 import EditPost from 'src/components/EditPost';
 import About from 'src/components/About';
 import Missing from 'src/components/Missing';
+import { useRouter } from 'next/router';
 
 // Define the Post type here
 interface Post {
@@ -31,6 +32,7 @@ function Index() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [fetchError, setFetchError] = useState<string | null>(null);
+  const router = useRouter(); // Using useRouter hook
 
   const fetchPostsData = async () => {
     setIsLoading(true);

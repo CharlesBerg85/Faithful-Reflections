@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
+import { useRouter } from 'next/router';
 
 const NewPost = () => {
   // State for storing the post title and body
   const [postTitle, setPostTitle] = useState('');
   const [postBody, setPostBody] = useState('');
 
-  // Navigation hook from react-router-dom
-  const navigate = useNavigate();
+  // Navigation hook from next/router
+  const router = useRouter();
 
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -21,9 +21,9 @@ const NewPost = () => {
 
     try {
       // Send the new post data to your backend using Axios
-      await axios.post('https://your-backend-url/posts', newPost);
+      await axios.post('http://localhost:3000/posts', newPost);
       // Navigate back to the home page
-      navigate('/');
+      router.push('/');
     } catch (error: unknown) {
       console.error('Error saving post:', (error as Error).message);
       // Handle any error that occurs while saving the post

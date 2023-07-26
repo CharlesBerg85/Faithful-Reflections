@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 interface Post {
   id: number;
@@ -16,7 +16,7 @@ const SinglePost: React.FC<Props> = ({ post }) => {
   return (
     <article className="post">
       {/* Link to the individual post page */}
-      <Link to={`/post/${post.id}`}>
+      <Link href={`/post/${post.id}`}>
         {/* Display the post title */}
         <h2>{post.title}</h2>
         {/* Display the post date */}
