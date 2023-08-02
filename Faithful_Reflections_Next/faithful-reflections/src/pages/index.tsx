@@ -58,7 +58,6 @@ function Index() {
       <Nav />
       {/* Pass the isLoading, fetchError, and posts props to the Home component */}
       <Home isLoading={isLoading} fetchError={fetchError} posts={posts} />
-      <PostPage />
       <Missing />
       <Footer />
     </div>
