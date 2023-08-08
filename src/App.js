@@ -16,7 +16,7 @@ function App() {
   // Retrieve the setPosts action from easy-peasy
   const setPosts = useStoreActions((actions) => actions.setPosts);
   // Use the useAxiosFetch hook to fetch data from the server
-  const { data, fetchError, isLoading } = useAxiosFetch(`${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_SERVER_PORT}`);
+  const { data, fetchError, isLoading } = useAxiosFetch('http://localhost:3500/posts')
 
   // Update the state with the fetched data
   useEffect(() => {
